@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, print-scale: 1.0">
+  <title>40-Day Exam Study Plan | Signals | Math | Circuits</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+      color: #1e2a3e;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      padding: 2rem 1.5rem 3rem 1.5rem;
+    }
+
+    /* header */
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 3px solid #0f3b5f;
+      padding-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0b3b5f, #1e6f5c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .header p {
+      color: #2c5a6e;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      background: #eef2fa;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1e4663;
+    }
+
+    .priority-note {
+      background: #e6f7f0;
+      border-left: 6px solid #1e6f5c;
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      margin: 1.5rem 0 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .priority-note span {
+      font-weight: 700;
+    }
+
+    .skip-em {
+      background: #fef4e8;
+      border-left-color: #e67e22;
+    }
+
+    /* day grid */
+    .day-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .day-card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2edf2;
+      overflow: hidden;
+      transition: all 0.1s ease;
+    }
+
+    .day-header {
+      background: #f9fbfd;
+      padding: 0.9rem 1.5rem;
+      border-bottom: 2px solid #dce8f0;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .day-number {
+      font-weight: 800;
+      font-size: 1.3rem;
+      background: #0f3b5f;
+      color: white;
+      width: 50px;
+      height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .day-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0b3b2f;
+    }
+
+    .day-sub {
+      font-size: 0.85rem;
+      color: #4d6a7e;
+      margin-left: auto;
+    }
+
+    /* table style inside card */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .schedule-table th {
+      background: #eef3f8;
+      text-align: left;
+      padding: 0.9rem 1.2rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #1c4e6e;
+      border-bottom: 1px solid #cddfe8;
+    }
+
+    .schedule-table td {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid #eaf0f5;
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+
+    .subject-signal {
+      background: #eef5fc;
+      border-left: 4px solid #2c7da0;
+    }
+    .subject-math {
+      background: #f3f0fc;
+      border-left: 4px solid #6c5b7b;
+    }
+    .subject-circuits {
+      background: #eafaf1;
+      border-left: 4px solid #2e8b57;
+    }
+    .subject-electronics {
+      background: #fff4e6;
+      border-left: 4px solid #e67e22;
+    }
+    .subject-logic {
+      background: #fceeef;
+      border-left: 4px solid #c44569;
+    }
+    .subject-mixed {
+      background: #e8f0fe;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .evening-note {
+      font-size: 0.85rem;
+      color: #3c6e71;
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    .mock-tag {
+      display: inline-block;
+      background: #d93f21;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: bold;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5e7e9a;
+      border-top: 1px solid #d0e2ef;
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+      .schedule-table th, .schedule-table td {
+        padding: 0.7rem 0.8rem;
+        display: table-cell;
+      }
+      .day-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .day-sub {
+        margin-left: 0;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        padding: 0.5rem;
+        max-width: 100%;
+      }
+      .priority-note {
+        break-inside: avoid;
+      }
+      .day-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .badge-container {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📘 40-Day Exam Accelerator</h1>
+    <p>From 30 May → 9 July (Exam: 18 Tir)</p>
+    <div class="badge-container">
+      <div class="badge">🔷 Signals & Systems (HIGHEST)</div>
+      <div class="badge">📐 Mathematics (EQUAL to Circuits)</div>
+      <div class="badge">⚡ Electric Circuits (EQUAL priority)</div>
+      <div class="badge">🔌 Electronics (medium)</div>
+      <div class="badge">⚙️ Logic (low but present)</div>
+    </div>
+  </div>
+
+  <div class="priority-note">
+    <div>🎯 <span>Priority:</span> Signals = #1 &nbsp;&nbsp;|&nbsp;&nbsp; Math = Circuits (equally important)</div>
+    <div>⏱️ Each day: Morning (3h) + Afternoon (2h) + Evening mixed problems (1h)</div>
+  </div>
+  <div class="priority-note skip-em">
+    <div>⚠️ <strong>Electromagnetics = SKIP</strong> (zero questions in recent years)</div>
+    <div>📌 Keep a <strong>mistake notebook</strong> & review every 4 days</div>
+  </div>
+
+  <div class="day-grid">
+    <!-- ==================== DAYS 1–8 ==================== -->
+    <!-- day 1 -->
+    <div class="day-card">
+      <div class="day-header"><span class="day-number">1</span><span class="day-title">Foundations - Signals</span><span class="day-sub">30 May</span></div>
+      <table class="schedule-table">
+        <thead><tr><th>Morning (3h)</th><th>Afternoon (2h)</th><th>Evening (1h) – Mixed/Review</th></tr></thead>
+        <tbody><tr><td class="subject-signal">🔷 Signals: LTI systems, convolution, impulse response</td><td>—</td><td>📖 Rest or review formulas + flashcards</td></tr></tbody>
+      </table>
+    </div>
+    <!-- day 2 -->
+    <div class="day-card"><div class="day-header"><span class="day-number">2</span><span class="day-title">Signals - CT Fourier Series</span><span class="day-sub">31 May</span></div>
+      <table class="schedule-table"><thead><tr><th>Morning (3h)</th><th>Afternoon (2h)</th><th>Evening (1h)</th></tr></thead>
+      <tbody><tr><td class="subject-signal">🔷 Continuous-time Fourier series: coefficients, properties</td><td>—</td><td>✅ Solve 10 signal problems (CTFS)</td></tr></tbody></table>
+    </div>
+    <!-- day 3 -->
+    <div class="day-card"><div class="day-header"><span class="day-number">3</span><span class="day-title">Signals - DT Fourier Series</span><span class="day-sub">1 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 Discrete-time Fourier series, periodic sequences</td><td>—</td><td>🔁 10 signal problems (DTFS + basics)</td></tr></tbody></table>
+    </div>
+    <!-- day 4 -->
+    <div class="day-card"><div class="day-header"><span class="day-number">4</span><span class="day-title">CT Fourier Transform</span><span class="day-sub">2 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 CT Fourier transform: definition, properties, transform pairs</td><td>—</td><td>📝 10 CTFT problems + formula memorization</td></tr></tbody></table>
+    </div>
+    <!-- day 5 -->
+    <div class="day-card"><div class="day-header"><span class="day-number">5</span><span class="day-title">DT Fourier Transform</span><span class="day-sub">3 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 DTFT, properties, relation to CTFT</td><td>—</td><td>🔁 10 DTFT problems, review CTFT pairs</td></tr></tbody></table>
+    </div>
+    <!-- day 6 -->
+    <div class="day-card"><div class="day-header"><span class="day-number">6</span><span class="day-title">Laplace Transform (Signals)</span><span class="day-sub">4 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 Laplace transform: ROC, properties, inverse Laplace</td><td>—</td><td>⚡ 10 Laplace problems (signals perspective)</td></tr></tbody></table>
+    </div>
+    <!-- day 7 -->
+    <div class="day-card"><div class="day-header"><span class="day-number">7</span><span class="day-title">Z-Transform</span><span class="day-sub">5 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 Z-transform: ROC, properties, inverse Z</td><td>—</td><td>📌 10 Z-transform problems</td></tr></tbody></table>
+    </div>
+    <!-- day 8 -->
+    <div class="day-card"><div class="day-header"><span class="day-number">8</span><span class="day-title">Sampling Theorem + Signals review</span><span class="day-sub">6 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 Sampling, Nyquist, aliasing, reconstruction</td><td>—</td><td>🎯 Mixed signals: 20 problems (Fourier/Laplace/Z/sampling)</td></tr></tbody></table>
+    </div>
+
+    <!-- ==================== DAYS 9–16 ==================== add Math + Circuits intro -->
+    <div class="day-card"><div class="day-header"><span class="day-number">9</span><span class="day-title">Math: 1st Order ODEs + Signals review</span><span class="day-sub">7 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 1st order ODE (separable, linear, exact)</td><td class="subject-signal">🔷 Signals review (Fourier recap)</td><td>🧠 10 ODE + 5 signals problems</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">10</span><span class="day-title">Math: 2nd Order ODE</span><span class="day-sub">8 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Homogeneous & non-homogeneous 2nd order, Wronskian</td><td class="subject-signal">🔷 Laplace in signals (review)</td><td>⚡ 10 ODE + 5 signals (CTFT)</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">11</span><span class="day-title">Math: Laplace for ODEs</span><span class="day-sub">9 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Solving ODEs using Laplace transform, IVPs</td><td class="subject-signal">🔷 Z-transform review</td><td>📐 10 Laplace (math) + 5 ODE problems</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">12</span><span class="day-title">Power Series, Bessel + Circuits Basics</span><span class="day-sub">10 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Power series solutions, Bessel functions (properties)</td><td class="subject-circuits">⚡ Kirchhoff, Thevenin, Norton, Wye-Delta</td><td>🔁 5 Bessel + 5 circuits (Thevenin/Norton)</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">13</span><span class="day-title">Legendre + 1st order transients</span><span class="day-sub">11 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Legendre polynomials, Rodrigues formula</td><td class="subject-circuits">⚡ 1st order transients (RC, RL), natural/forced response</td><td>✍️ 5 Legendre + 5 transient circuits</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">14</span><span class="day-title">Complex integrals, Cauchy + 2nd order RLC</span><span class="day-sub">12 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Complex integrals, Cauchy integral theorem, Cauchy formula</td><td class="subject-circuits">⚡ 2nd order RLC circuits, damping, natural frequency</td><td>📘 5 complex + 5 RLC problems</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">15</span><span class="day-title">Residue theorem + Phasors AC</span><span class="day-sub">13 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Residue theorem, evaluating real integrals, poles</td><td class="subject-circuits">⚡ Phasors, steady-state AC, impedance, power</td><td>💡 5 residue + 5 phasor circuits</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">16</span><span class="day-title">Applications of residues + Laplace in circuits</span><span class="day-sub">14 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Real integrals via residues, inverse Laplace with residues</td><td class="subject-circuits">⚡ Circuit analysis using Laplace transform, transfer functions</td><td>🎯 10 residue based + 10 Laplace circuits (mixed)</td></tr></tbody></table>
+    </div>
+
+    <!-- DAYS 17–24 advanced topics + electronics -->
+    <div class="day-card"><div class="day-header"><span class="day-number">17</span><span class="day-title">Natural frequency / Network functions + Mapping</span><span class="day-sub">15 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-circuits">⚡ Natural frequency, network functions, pole-zero</td><td class="subject-math">📐 Conformal mapping (basic, transformations)</td><td>📌 10 network functions + 5 mapping</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">18</span><span class="day-title">Two-port parameters + BJT DC</span><span class="day-sub">16 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-circuits">⚡ Two-port networks: Z, Y, ABCD, hybrid</td><td class="subject-electronics">🔌 BJT DC analysis, biasing, Q-point</td><td>⚙️ 10 two-port + 5 BJT problems</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">19</span><span class="day-title">Circuits complete review + MOSFET</span><span class="day-sub">17 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-circuits">⚡ Mixed circuit problems: transients, phasors, Laplace, two-port</td><td class="subject-electronics">🔌 MOSFET DC analysis, saturation/triode</td><td>⚡ 15 circuits + 5 MOSFET</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">20</span><span class="day-title">Signal high-yield + Op-amps</span><span class="day-sub">18 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 Signals: rapid fire (Fourier, Laplace, Z-transform problem solving)</td><td class="subject-electronics">🔌 Ideal op-amps, inverting/noninverting, summing, integrator</td><td>📘 10 signals + 5 op-amp circuits</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">21</span><span class="day-title">Z-transform/sampling review + Diff amps</span><span class="day-sub">19 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 Z-transform & sampling: exam-type problems, aliasing</td><td class="subject-electronics">🔌 Differential amplifiers, CMRR, active load</td><td>🔁 10 signals + 5 diff amp numericals</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">22</span><span class="day-title">Math ODEs/Laplace review + Current mirrors</span><span class="day-sub">20 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 ODE, Laplace, residues: quick problem marathon</td><td class="subject-electronics">🔌 Current mirrors, Wilson, cascode</td><td>🧠 10 math problems + 5 current sources</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">23</span><span class="day-title">Residue & complex review + Feedback</span><span class="day-sub">21 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-math">📐 Residue theorem challenging integrals, complex analysis</td><td class="subject-electronics">🔌 Feedback topologies, effect on gain/bandwidth</td><td>⚡ 10 residue + 5 feedback</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">24</span><span class="day-title">Mixed mega review + Power amps</span><span class="day-sub">22 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-mixed">🌟 MIXED: Signals+Math+Circuits (30 problems timed)</td><td class="subject-electronics">🔌 Power amplifiers (class A,B, efficiency)</td><td>✅ 10 power amp problems + error log</td></tr></tbody></table>
+    </div>
+
+    <!-- DAYS 25–32 Adding Logic -->
+    <div class="day-card"><div class="day-header"><span class="day-number">25</span><span class="day-title">Logic Simplification + Signals mock</span><span class="day-sub">23 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-logic">⚙️ Boolean algebra, K-map simplification, don't cares</td><td class="subject-signal">🔷 Signals quick test (20 problems, 1h)</td><td>📘 10 logic + 10 signals</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">26</span><span class="day-title">Combinational circuits + Math test</span><span class="day-sub">24 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-logic">⚙️ Combinational logic (MUX, decoder, adder, comparator)</td><td class="subject-math">📐 Math full test (ODEs, Laplace, residues, Bessel) – 20 problems</td><td>🔁 10 logic + 10 math review</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">27</span><span class="day-title">Sequential logic + Circuits test</span><span class="day-sub">25 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-logic">⚙️ Flip-flops, registers, counters, state diagrams</td><td class="subject-circuits">⚡ Circuits full test (transients, phasors, two-port)</td><td>📌 10 sequential circuits + 10 circuits</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">28</span><span class="day-title">State machines + Electronics test</span><span class="day-sub">26 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-logic">⚙️ FSM design, Mealy/Moore, counter design</td><td class="subject-electronics">🔌 Electronics quick mock (BJT, MOSFET, Op-amp, feedback)</td><td>🎯 10 logic + 10 electronics</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">29</span><span class="day-title">Full signals mock + math mock</span><span class="day-sub">27 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-signal">🔷 Signals FULL MOCK (30 problems, timed 90 min)</td><td class="subject-math">📐 Math FULL MOCK (30 problems, 90 min)</td><td>🔍 Review mistakes, note weak areas</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">30</span><span class="day-title">Circuits mock + Electronics mock</span><span class="day-sub">28 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-circuits">⚡ Circuits FULL MOCK (30 problems, 90 min)</td><td class="subject-electronics">🔌 Electronics mock (20 problems)</td><td>✍️ Error analysis + revisit weak topics</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">31</span><span class="day-title">Mixed mock (all subjects)</span><span class="day-sub">29 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-mixed">🏆 MIXED MOCK: 10 signals + 10 math + 10 circuits + 5 electronics + 5 logic (1h45)</td><td colspan="2">➕ Review all mistakes from day 29 & 30, re-solve incorrectly solved problems</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">32</span><span class="day-title">Final mixed + weak area cleanup</span><span class="day-sub">30 June</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-mixed">⚡ Mixed super test: 8 signals, 8 math, 8 circuits, 6 electronics, 5 logic</td><td>📖 Formula memorization (flashcards)</td><td>📓 Final error log revision</td></tr></tbody></table>
+    </div>
+
+    <!-- DAYS 33–39 MOCK EXAMS -->
+    <div class="day-card"><div class="day-header"><span class="day-number">33</span><span class="day-title">Mock Exam #1 <span class="mock-tag">FULL LENGTH</span></span><span class="day-sub">1 July</span></div>
+      <table class="schedule-table"><tbody><tr><td colspan="2">🎯 Complete 3-hour mock exam (all subjects: Signals, Math, Circuits, Electronics, Logic). Simulate real exam conditions.</td><td>😌 Rest / light review of formula sheets</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">34</span><span class="day-title">Mock Exam #2</span><span class="day-sub">2 July</span></div>
+      <table class="schedule-table"><tbody><tr><td colspan="2">🎯 Full 3-hour mock exam (different problem set, emphasis on high-weight topics)</td><td>📘 Relax – no new heavy studying</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">35</span><span class="day-title">Mock Exam #3</span><span class="day-sub">3 July</span></div>
+      <table class="schedule-table"><tbody><tr><td colspan="2">🎯 Third full mock exam – time management focus</td><td>✅ quick scan of mistakes</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">36</span><span class="day-title">Mock Exam #4</span><span class="day-sub">4 July</span></div>
+      <table class="schedule-table"><tbody><tr><td colspan="2">🎯 Fourth full mock exam – test endurance and accuracy</td><td>🌀 mental note of repeating errors</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">37</span><span class="day-title">Deep Mistake Analysis</span><span class="day-sub">5 July</span></div>
+      <table class="schedule-table"><tbody><tr><td class="subject-mixed">🔎 Go through all incorrect answers from exams 33–36, redo each problem concept by concept</td><td>📌 Strengthen weak domains (signals or circuits or math)</td><td>💡 Create summary of “must remember” tricks</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">38</span><span class="day-title">Light Review + Formula Cards</span><span class="day-sub">6 July</span></div>
+      <table class="schedule-table"><tbody><tr><td colspan="2">📇 Flashcards only: Fourier pairs, Laplace pairs, Z-transform properties, Residue formula, Bessel/Legendre basics, Op-amp rules, logic K-map rules, circuit phasor equations.</td><td>😴 Early rest, no stress</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">39</span><span class="day-title">Complete Rest & Mindset</span><span class="day-sub">7 July</span></div>
+      <table class="schedule-table"><tbody><tr><td colspan="3">🎯 NO heavy studying – read summaries, breathe, trust the plan. Prepare exam essentials.</td></tr></tbody></table>
+    </div>
+    <div class="day-card"><div class="day-header"><span class="day-number">40</span><span class="day-title">⚡ EXAM DAY – 18 Tir (9 July)</span><span class="day-sub">Conquer</span></div>
+      <table class="schedule-table"><tbody><tr><td colspan="3">🌟 Wake up, glance at formulas, stay calm. You've prepared 40 days – ace the exam! 🌟</td></tr></tbody></table>
+    </div>
+  </div>
+
+  <footer>
+    ✅ Strategy: Signals = highest priority | Math = Circuits (equal) | Electronics = secondary | Logic = light | Electromagnetics = skip.<br>
+    📅 Evening session from day 9 onward: solve at least 20 mixed problems. Keep mistake notebook. Good luck!
+  </footer>
+</div>
+</body>
+</html>
+```
